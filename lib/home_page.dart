@@ -14,6 +14,7 @@ class HomePage extends StatefulWidget {
 }
 
 class _HomePageState extends State<HomePage> {
+  var androidVersionNames = ["a", "b", "c"];
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -21,31 +22,32 @@ class _HomePageState extends State<HomePage> {
         title: Text("Home Flutter Firebase"),
         //actions: <Widget>[LogoutButton()],
       ),
-      body: Center(
-        child: Column(
-          children: <Widget>[
-            SizedBox(height: 20.0),
-            Text(
-              'Home Page Flutter Firebase  Content',
-              style: TextStyle(fontSize: 20, fontWeight: FontWeight.bold),
-            ),
-            SizedBox(height: 20.0),
-            Text(
-              'Welcome ${widget.currentUser.email}',
-              style: TextStyle(
-                  fontSize: 18,
-                  fontWeight: FontWeight.bold,
-                  fontStyle: FontStyle.italic),
-            ),
-            SizedBox(height: 20.0),
-            RaisedButton(
-                child: Text("LOGOUT"),
-                onPressed: () async {
-                  await Provider.of<AuthService>(context).logout();
-                })
-          ],
+      body: Container(
+        padding: EdgeInsets.fromLTRB(10, 10, 10, 0),
+        child: ListView.builder(
+          itemBuilder: (context, position) {
+            return Card(
+              child: Text(androidVersionNames[position]),
+            );
+          },
+          itemCount: androidVersionNames.length,
         ),
-      ),
+      ), 
+      /*Center(
+        child: ListView.builder(
+          itemBuilder: (context, position) {
+            return Card(
+              child: Text(androidVersionNames[position]),
+            );
+          },
+          itemCount: androidVersionNames.length,
+        ),
+        /*RaisedButton(
+                  child: Text("LOGOUT"),
+                  onPressed: () async {
+                    await Provider.of<AuthService>(context).logout();
+                  })*/
+      ),*/
     );
   }
 }

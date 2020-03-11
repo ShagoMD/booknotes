@@ -32,7 +32,8 @@ class MyApp extends StatelessWidget {
               print("error");
               return Text(snapshot.error.toString());
             }
-            return snapshot.hasData ? HomePage(snapshot.data) : LoginPage();
+            //return snapshot.hasData ? HomePage(snapshot.data) : LoginPage();
+            return HomePage(snapshot.data);
           } else {
             return LoadingCircle();
           }
