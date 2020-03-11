@@ -1,9 +1,9 @@
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
-import 'package:booknotes/login.dart';
 import 'package:provider/provider.dart';
 import 'authservice.dart';
 import 'home_page.dart';
+import 'login.dart';
 
 void main() => runApp(
       ChangeNotifierProvider<AuthService>(
@@ -32,8 +32,8 @@ class MyApp extends StatelessWidget {
               print("error");
               return Text(snapshot.error.toString());
             }
-            //return snapshot.hasData ? HomePage(snapshot.data) : LoginPage();
-            return HomePage(snapshot.data);
+            return snapshot.hasData ? HomePage(snapshot.data) : LoginPage();
+            //return HomePage(snapshot.data);
           } else {
             return LoadingCircle();
           }

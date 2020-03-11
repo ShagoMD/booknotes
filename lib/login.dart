@@ -17,7 +17,7 @@ class _LoginPageState extends State<LoginPage> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text("Login Page Flutter Firebase"),
+        title: Text("BookNotes - Login"),
       ),
       body: Container(
         padding: EdgeInsets.all(20.0),
